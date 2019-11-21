@@ -1,0 +1,32 @@
+.wrapper{
+  position: relative;
+}
+.main-content {
+  display: block;
+  margin: 0 auto;
+  padding: 0px;
+  .content {
+    width: 100%;
+    margin-left: 0px;
+    & > div{
+      max-width: 428px;
+      margin: 0px auto;
+      padding: 30px;
+    }
+    .btn-header{
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.23;
+      letter-spacing: normal;
+      color: #c8c7cc;
+      position: absolute;
+      left: 5px;
+      top: 10px;
+    }
+    .login-cancel{
+      cursor: pointer;
+    }
+  }
+}

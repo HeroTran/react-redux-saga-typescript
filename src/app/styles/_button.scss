@@ -1,0 +1,66 @@
+/**make style for button*/
+@import "colors";
+@import "variables";
+
+.btn-app{
+    color: $color-white !important;
+    background-color: $color-blue !important;
+    border-color:$color-blue !important;
+    font-family: 'SFProText-Semibold', Arial, Helvetica, sans-serif !important;
+    font-style: normal !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: -0.4px;
+    color: #ffffff;
+}
+
+.btn-outline-app{
+    background-color: #fff;
+    color: #12a6ed;
+    border-color:$color-blue !important;
+}
+.btn:disabled {
+    cursor: not-allowed;
+    color: #9b9b9b !important;
+    background-color: #f2f2f2 !important;
+    border-color: #fff!important;
+    i{
+        margin-right: 5px;
+    }
+
+}
+.btn.disabled{
+    cursor: not-allowed;
+    color: #9b9b9b !important;
+    background-color: #f2f2f2 !important;
+    border-color: #fff!important;
+    i{
+        margin-right: 5px;
+    }
+}
+.btn{
+    padding: 5px 10px;
+    height: 48px;
+    width: 100%;
+    font-family: 'SFProText-Semibold', Arial, Helvetica, sans-serif;
+    font-weight: bold !important;
+    font-style: normal;
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: -0.4px;
+    color: #ffffff;
+    .fa-spinner{
+        margin-right: 5px;
+    }
+}
+.btn-cancle{
+    font-family: 'SFProText-Regular', Arial, Helvetica, sans-serif;
+    font-weight: normal !important;
+    font-style: normal;
+}

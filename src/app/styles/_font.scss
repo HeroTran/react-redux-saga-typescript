@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'SFProText-Bold';
+    src: url('../../public/fonts/SFProText-Bold.eot');
+    src: url('../../public/fonts/SFProText-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/SFProText-Bold.woff') format('woff'),
+         url('../../public/fonts/SFProText-Bold.ttf') format('truetype'),
+         url('../../public/fonts/SFProText-Bold.svg#SFProText') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Medium';
+    src: url('../../public/fonts/SFProText-Medium.eot');
+    src: url('../../public/fonts/SFProText-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/SFProText-Medium.woff') format('woff'),
+         url('../../public/fonts/SFProText-Medium.ttf') format('truetype'),
+         url('../../public/fonts/SFProText-Medium.svg#SFProText') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Regular';
+    src: url('../../public/fonts/SFProText-Regular.eot');
+    src: url('../../public/fonts/SFProText-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/SFProText-Regular.woff') format('woff'),
+         url('../../public/fonts/SFProText-Regular.ttf') format('truetype'),
+         url('../../public/fonts/SFProText-Regular.svg#SFProText') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Semibold';
+    src: url('../../public/fonts/SFProText-Semibold.eot');
+    src: url('../../public/fonts/SFProText-Semibold.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/SFProText-Semibold.woff') format('woff'),
+         url('../../public/fonts/SFProText-Semibold.ttf') format('truetype'),
+         url('../../public/fonts/SFProText-Semibold.svg#SFProText') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BravuraText';
+    font-style: normal;
+    src: url('../../public/fonts/BravuraText.eot');
+    src: url('../../public/fonts/BravuraText.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/BravuraText.woff2') format('woff2'),
+         url('../../public/fonts/BravuraText.woff') format('woff'),
+         url('../../public/fonts/BravuraText.svg#BravuraText') format('svg'),
+         url('../../public/fonts/BravuraText.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Bravura';
+    font-style: normal;
+    src: url('../../public/fonts/Bravura.eot');
+    src: url('../../public/fonts/Bravura.eot?#iefix') format('embedded-opentype'),
+         url('../../public/fonts/Bravura.woff2') format('woff2'),
+         url('../../public/fonts/Bravura.woff') format('woff'),
+         url('../../public/fonts/Bravura.svg#Bravura') format('svg'),
+         url('../../public/fonts/BravuraText.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Helvetica 63 Medium Extended';
+    src: url('../../public/fonts/HelveticaNeue-MediumExt.otf') format('opentype');
+}

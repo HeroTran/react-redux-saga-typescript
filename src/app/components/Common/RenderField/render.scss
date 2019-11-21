@@ -1,0 +1,82 @@
+.render-field{
+  .display-input {
+    display: block;
+    position: relative;
+    .error-check{
+      content: "";
+      background-image: url("../../../../public/images/close-active.png");
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-origin: content-box;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      z-index: 0;
+      margin: 0px;
+    }
+    span {
+      display: block;
+      text-align: left;
+      margin: 5px 0 0;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.6;
+      letter-spacing: normal;
+      color: #ff0000;
+    }
+    .error {
+      border: 1px solid #ff0000;
+      color: #ff0000;
+      margin: 0px;
+      &:focus, &:active{
+        border: 1px solid #ff0000;
+        color: #ff0000;
+      }
+    }
+  }
+  label{
+    margin: 5px 0px;
+  }
+}
+
+.success-check{
+    content: "";
+    background-image: url("../../../../public/images/ic-check.png");
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-origin: content-box;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 1;
+    margin: 0px !important;
+}
+.success-validate{
+  .display-input{
+      position: relative;
+      input{
+          border: 1px solid #12a6ed;
+          position: relative;
+      }
+  }
+}
+.async-validating{
+  position: relative;
+  .success-check,.error-check{display: none !important;}
+  &:after{
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 200;
+    height: 16px;
+    width: 16px;
+    background-image: url("../../../../public/images/loading-validate.gif");
+    background-size: contain;
+    background-origin: content-box;
+  }
+}

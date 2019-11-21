@@ -1,0 +1,102 @@
+/**reponsive website*/
+@media (min-width: 1200px){
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    #root{
+        .wrapper{
+            .main-content{
+                .content>div{
+                    padding: 15px;
+                }
+            }
+            .content-page{
+                width: 100%;
+                display: block;
+                .wrapper-content{
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+ }
+
+ 
+ @media (min-width: 768px) and (max-width: 991px){
+    #root{
+        .wrapper{
+            .main-content{
+                .content>div{
+                    padding: 15px;
+                }
+            }
+            .content-page{
+                width: 100%;
+                display: block;
+                .wrapper-content{
+                    margin: 0 auto;
+                    padding: 30px 60px;
+                }
+            }
+        }
+    }
+    
+ }
+
+ @media (min-width: 600px) and (max-width: 767px) { 
+    #root{
+        .wrapper{
+            .main-content{
+                .content>div{
+                    padding: 15px;
+                }
+            }
+            .content-page{
+                width: 100%;
+                display: block;
+                .wrapper-content{
+                    margin: 0 auto;
+                    padding: 30px 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 415px) and (max-width: 600px) {
+    #root{
+        .wrapper{
+            .content-page{
+                width: calc(100% - 30px);
+                display: block;
+                margin: 0px auto;
+                .wrapper-content{
+                    margin: 0 auto;
+                    padding: 30px 40px;
+                }
+            }
+        }
+    }
+    
+}
+
+@media (min-width: 320px) and (max-width: 415px) {
+    #root{
+        .wrapper{
+            .main-content{
+                .content>div{
+                    padding: 15px;
+                }
+            }
+            .content-page{
+                width: 100%;
+                display: block;
+                .wrapper-content{
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+            }
+        }
+    }
+    
+}
