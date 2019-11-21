@@ -1,7 +1,7 @@
 import { Record } from 'immutable';
 import { RouterAction } from 'connected-react-router';
 import { LanguageFactory, LanguageRecord } from './Language/types';
-import { UserStateRecord, UserStateFactory } from './Login/types';
+import { UserStateRecord, UserStateFactory } from './User/types';
 import { LanguageAction } from './Language/actionTypes';
 
 export type AppStateRecord = Record<AppState>;

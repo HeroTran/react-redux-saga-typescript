@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immutable';
 import { language } from '../functionals/Language';
-import { user } from '../functionals/Login';
+import { user } from '../functionals/User';
 import { reducer as form } from 'redux-form/immutable';
 import { connectRouter } from 'connected-react-router/immutable';
 import { History } from 'history'

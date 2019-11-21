@@ -1,26 +1,54 @@
-import axios, { AxiosRequestConfig, AxiosPromise, AxiosResponse } from 'axios';
-import { trimURLProtocolAndDomain } from './helper';
-import { API_URL } from '../functionals/Login/constants';
+import axios, { AxiosRequestConfig, AxiosPromise, CancelTokenSource } from 'axios';
+import {
+  EXTENSION_DISPLAY_FILE
+} from '../functionals/User/constants';
 
-const META_API = process.env.REACT_APP_API_URL as string;
+import { getAuthorizationHeader } from './helper';
+
+const META_API = process.env.REACT_APP_API_URL;
+
+const CancelToken = axios.CancelToken;
+let source: CancelTokenSource = CancelToken.source();
 
 export interface RequestGetApi {
   url: string;
 }
 
-export function get<T>(request: RequestGetApi) {
+export function download<T>(request: RequestGetApi) {
   const req: AxiosRequestConfig = {
     url: META_API + request.url,
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json; charset=utf-8'
+      'Content-Type': EXTENSION_DISPLAY_FILE,
+      'Authorization': getAuthorizationHeader(),
+      'Accept': 'application/json'
     },
-    responseType: 'json',
-    withCredentials: true
+    responseType: 'arraybuffer'
   };
   const fetchData: AxiosPromise<T> = axios(req);
   return fetchData.then(res => {
     return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export function apiGet<T>(request: RequestGetApi, progressCb?: (e: ProgressEvent) => void) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': getAuthorizationHeader()
+    },
+    responseType: 'json',
+    onDownloadProgress: progressCb
+  };
+  const fetchData: AxiosPromise<T> = axios(req);
+  return fetchData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
   });
 }
 
@@ -29,78 +57,166 @@ export interface RequestPostApi<E = any> {
   data?: E;
 }
 
-export function login<T = any, E = any>(request: RequestPostApi<Newzik.LoginData>) {
+export function post<T = any, E = any>(request: RequestPostApi<E>, cancelToken?: CancelTokenSource) {
+  let req: AxiosRequestConfig;
+  if (cancelToken) {
+    req = {
+      url: META_API + request.url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': getAuthorizationHeader()
+      },
+      data: JSON.stringify(request.data),
+      responseType: 'json',
+      cancelToken: cancelToken.token
+    };
+  } else {
+    req = {
+      url: META_API + request.url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': getAuthorizationHeader()
+      },
+      data: JSON.stringify(request.data),
+      responseType: 'json'
+    };
+  }
+  const postData: AxiosPromise<T> = axios(req);
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export interface RequestPostUploadApi<E> {
+  url: string;
+  data: E;
+  uuid: string;
+}
+export function postUploadFile<T, E>(request: RequestPostUploadApi<E>, progressCb?: (e: ProgressEvent) => void) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url + request.uuid,
+    data: request.data,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': getAuthorizationHeader()
+    },
+    onUploadProgress: progressCb,
+    cancelToken: source.token
+  };
+
+  const postData: AxiosPromise<T> = axios(req);
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export interface RequestPutApi<E> {
+  url: string;
+  data: E;
+}
+
+export function apiPut<T, E>(request: RequestPutApi<E>) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': getAuthorizationHeader(),
+    },
+    data: JSON.stringify(request.data),
+    responseType: 'json'
+  };
+
+  const putData: AxiosPromise<T> = axios(req);
+  return putData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export interface RequestPatchApi<E> {
+  url: string;
+  data: E;
+}
+
+export function apiPatch<T, E>(request: RequestPatchApi<E>) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': getAuthorizationHeader(),
+    },
+    data: JSON.stringify(request.data),
+    responseType: 'json'
+  };
+  const patchData: AxiosPromise<T> = axios(req);
+  return patchData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export interface RequestDeleteApi<E = any> {
+  url: string;
+  data?: E;
+}
+
+export function apiDelete<T, E>(request: RequestDeleteApi<E>) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': getAuthorizationHeader(),
+    },
+    data: JSON.stringify(request.data),
+    responseType: 'json'
+  };
+  const delData: AxiosPromise<T> = axios(req);
+  return delData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export interface RequestPatchApi<E> {
+  url: string;
+  data: E;
+}
+
+export function refreshToken<T = any, E = any>(request: RequestPostApi) {
   const params = new URLSearchParams();
   const data = request.data;
   if (data) {
-    params.set('username', data.username);
-    params.set('password', data.password);
-    params.set('authenticated', 'false');
+    params.set('refresh_token', data.refresh_token);
+    params.set('grant_type', data.grant_type);
   }
   const req: AxiosRequestConfig = {
     url: META_API + request.url,
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-88',
+      'Authorization': `'Basic '${btoa('newzik:')}`
     },
     data: params,
-    responseType: 'json',
-    withCredentials: true,
-    maxRedirects: 0
+    responseType: 'json'
   };
   const postData: AxiosPromise<T> = axios(req);
-
   return postData;
 }
 
-export function authorize<T = any, E = any>(request: RequestPostApi<Newzik.AuthorizeData>) {
-  const urlParams = new URLSearchParams(window.location.search);
-
-  const params = new URLSearchParams();
-  const data = request.data;
-  if (data) {
-    params.set('user_oauth_approval', `${data.user_oauth_approval}`);
-    params.set(`scope.${urlParams.get('scope')}`, `${data[`scope.${urlParams.get('scope')}`]}`);
-    params.set('authorize', data.authorize);
-  }
-  const req: AxiosRequestConfig = {
-    url: META_API + request.url,
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
-    },
-    data: params,
-    withCredentials: true
-  };
-  const postData: AxiosPromise<T> = axios(req);
-
-  return postData;
-}
-
-export function isRedirect(response: AxiosResponse<any>) {
-  if (response.config.url && response.request.responseURL && trimURLProtocolAndDomain(response.config.url) !== trimURLProtocolAndDomain(response.request.responseURL)) {
-    return true;
-  }
-  return false;
-}
-
-export const isAuthorizeURL = (URL: string) => URL.indexOf(API_URL.API_AUTHORIZE) !== -1;
-export const isCodeURL = (URL: string) => URL.indexOf(API_URL.API_CODE) !== -1;
-export const isLoginURL = (URL: string) => URL.indexOf(API_URL.API_LOGIN) !== -1;
-export const isInternalURL = (URL: string) => URL.indexOf(META_API) !== -1;
-
-export function forgotPassword(url: string) {
-  const req: AxiosRequestConfig = {
-    url: META_API + url,
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-    },
-    responseType: 'json',
-  };
-  const postData = axios(req);
-
-  return postData;
+export function cancelUploadFile() {
+  source.cancel('upload file was terminated');
+  source = CancelToken.source();
 }

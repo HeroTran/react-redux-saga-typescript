@@ -3,13 +3,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'connected-react-router/immutable';
 import { createBrowserHistory } from 'history'
 import { logger } from '../middleware';
-import { rootReducer } from './reducers';
+import { rootReducer } from './rootReducer';
 import createSagaMiddleware from 'redux-saga';
 import { AppState } from './types';
 import * as Immutable from 'immutable'
-import { rootSaga } from './saga';
+import { rootSaga } from './rootSaga';
 import { LanguageFactory } from './Language/types';
-import { UserStateFactory } from './Login/types';
+import { UserStateFactory } from './User/types';
 
 const initImmutable = Immutable.Map();
 const initial: AppState = {

@@ -13,7 +13,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "lint": "tslint --project tsconfig.json",
     "clean": "node rimraf",
-    "start": "cross-env NODE_ENV=local webpack-dev-server --mode development --color --port 3001 --open",
+    "start": "cross-env NODE_ENV=local webpack-dev-server --mode development --color --port 3000 --open",
     "start-dev": "cross-env NODE_ENV=dev webpack-dev-server --mode development --color --port 3000 --open",
     "start-prod": "cross-env NODE_ENV=production webpack-dev-server --mode development --color --port 3000 --open",
     "build-dev": "cross-env NODE_ENV=dev npm run build",

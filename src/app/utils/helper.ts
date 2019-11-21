@@ -1,5 +1,16 @@
-import { ForgotPasswordErrorType } from '../functionals/Login/constants';
 
+import {
+  ACCESS_TOKEN_KEY,
+} from '../functionals/User/constants';
+export const guid = () => {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1)
+      .toUpperCase();
+  }
+  return `${s4() + s4()} - ${s4() + s4()} - ${s4() + s4()} - ${s4() + s4()}`;
+}
 export const trimURLProtocolAndDomain = (url: string) => {
   if (url.match(/\/\/[^\/]+\/([^\.]+)/) && (url.match(/\/\/[^\/]+\/([^\.]+)/) as RegExpMatchArray).length) {
     return (url.match(/\/\/[^\/]+\/([^\.]+)/) as RegExpMatchArray)[1];
@@ -23,4 +34,14 @@ export function removeLocalStore(key: string) {
   window.localStorage.removeItem(key);
 }
 
-export const isEmailNotFound = (error: Newzik.ErrorResponse) => !error.data.success && error.data.subType === ForgotPasswordErrorType.NOT_FOUND_ENTITY && error.data.httpStatusCode === 404;
+export function getAccessToken() {
+  const user = getLocalStore(ACCESS_TOKEN_KEY);
+  if (user != null) {
+    return user;
+  }
+  return '';
+}
+
+export function getAuthorizationHeader() {
+  return `Bearer ${getAccessToken()}`;
+}

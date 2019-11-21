@@ -7,8 +7,13 @@ type LanguageProps = {
     [key: string]: string;
   };
 };
+type ChildrenProps = {
+  children?: React.ReactNode
+}
 
-export default class Language extends React.PureComponent<LanguageProps & any, {}> {
+type LanguageType = LanguageProps & ChildrenProps;
+
+export default class Language extends React.PureComponent<LanguageType, {}> {
   render() {
     return (
       <IntlProvider
