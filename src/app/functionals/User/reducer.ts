@@ -1,18 +1,13 @@
 import actionTypes from './actionTypes';
 import { UserStateRecord, UserStateFactory } from './types';
+import * as reducerUtils from './reducerUtils';
 
 const initialState: UserStateRecord = UserStateFactory();
 
 export default function user(state: UserStateRecord = initialState, action: any) {
   switch (action.type) {
-    case actionTypes.GET_ALL_USER_REQUEST: {
-      console.log('GET_ALL_USER_REQUEST');
-      return state;
-    }
     case actionTypes.GET_ALL_USER_SUCCESS: {
-      const userInfo = action.payload;
-      console.log(userInfo.data);
-      return state;
+      return reducerUtils.fetchListUser(state, action);
     }
     case actionTypes.GET_ALL_USER_FAIL: {
       const data = action.payload;

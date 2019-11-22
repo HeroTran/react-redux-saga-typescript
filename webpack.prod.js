@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 const env = process.env.NODE_ENV;
 
@@ -28,20 +30,23 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
             options: {
-              minimize: {
-                safe: true
-              }
+              sourceMap: true,
             }
           },
           {
-            loader: "sass-loader",
-            options: {}
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              minimize: true,
+            }
           }
         ]
       },
@@ -61,49 +66,49 @@ module.exports = {
           outputPath: 'pdf/'
         }
       },
-      { 
+      {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader?mimetype=image/svg+xml',
         options: {
           outputPath: 'font/'
         }
       },
-      { 
+      {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader?mimetype=application/font-woff",
         options: {
           outputPath: 'font/'
-        } 
+        }
       },
-      { 
+      {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader?mimetype=application/font-woff",
         options: {
           outputPath: 'font/'
-        } 
+        }
       },
-      { 
+      {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader?mimetype=application/octet-stream",
         options: {
           outputPath: 'font/'
-        } 
+        }
       },
-      { 
+      {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader",
         options: {
           outputPath: 'font/'
-        } 
+        }
       },
-      { 
+      {
         test: /\.gif$/,
         loader: "file-loader?mimetype=image/gif",
         options: {
           outputPath: 'images/'
-        } 
+        }
       },
-      { 
+      {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader?mimetype=application/font-sfnt",
         options: {
@@ -150,12 +155,19 @@ module.exports = {
           mangle: true
         },
         sourceMap: true
-      })
+      }),
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+      }),
+      new OptimizeCSSAssetsPlugin({}) //minify css to production
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style/[name][hash].css"
+      filename: "style/[name][hash].css",
+      chunkFilename: '[id].css',
     })
     ,
     new webpack.DefinePlugin({

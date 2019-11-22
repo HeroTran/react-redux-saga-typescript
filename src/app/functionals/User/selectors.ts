@@ -4,7 +4,7 @@ import { AppStateRecord } from '../types';
 export const getUserState = (state: AppStateRecord) => {
   return state.get('user')
 }
-export const makeSelectUserInfo = createSelector(
+export const makeSelectUserList = createSelector(
   getUserState,
-  user => user.get('userInfo')
+  user => user.get('userList')
 );

@@ -1,4 +1,4 @@
-import { Record } from 'immutable';
+import { Record, List } from 'immutable';
 
 export interface User {
   id: number;
@@ -25,7 +25,7 @@ export interface User {
 }
 
 export interface UserState {
-  userInfo: UserRecord;
+  userList: List<UserRecord>;
 }
 
 const userDefault: User = {
@@ -56,7 +56,7 @@ export type UserRecord = Record<User>;
 export const UserFactory = Record(userDefault);
 
 const userStateDefault: UserState = {
-  userInfo: UserFactory(),
+  userList: List<UserRecord>()
 }
 
 export type UserStateRecord = Record<UserState>;
