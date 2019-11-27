@@ -206,9 +206,26 @@ export function login<T = any, E = any>(request: RequestPostApi<API.LoginData>) 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*'
     },
     data: JSON.stringify(request.data),
+    responseType: 'json'
+  };
+  const postData: AxiosPromise<T> = axios(req);
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export function logout<T = any, E = any>(url : string) {
+  const req: AxiosRequestConfig = {
+    url: META_API + url,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': getAuthorizationHeader(),
+    },
     responseType: 'json'
   };
   const postData: AxiosPromise<T> = axios(req);

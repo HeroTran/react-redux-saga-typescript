@@ -4,6 +4,8 @@ import RenderField from './Common/RenderField/RenderField';
 import NoMatch from './Common/NoMatch/NoMatch';
 import Authenticated from './Common/Authenticated/Authenticated';
 import SpinnerLoading from './Common/Layout/SpinnerLoading/SpinnerLoading';
+import Header from './Common/Layout/Header/Header';
+import SideBar from './Common/Layout/SideBar/SideBar';
 
 export {
   Language,
@@ -11,5 +13,7 @@ export {
   RenderField,
   NoMatch,
   Authenticated,
-  SpinnerLoading
+  SpinnerLoading,
+  Header,
+  SideBar
 };

@@ -1,0 +1,16 @@
+.header-wrap{
+    float: right;
+}
+.btn-logout{
+    margin: 0px 5px;
+    display: inline-block;
+    i{
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        background-origin: content-box;
+        text-align: center;
+        display: block;
+        background-image: url("../../../../../public/images/logout.png");
+    }
+}

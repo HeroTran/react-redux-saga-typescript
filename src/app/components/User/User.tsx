@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+import { FormattedMessage } from 'react-intl';
+import messages from '../../functionals/LoginRegister/messages';
 type userProps = {
 }
 type userStates = {}
@@ -12,7 +13,7 @@ class User extends React.Component<userProps, userStates> {
     return (
       <React.Fragment>
         <div>
-          lalalal
+          <FormattedMessage {...messages.userName} />
         </div>
       </React.Fragment>
     );

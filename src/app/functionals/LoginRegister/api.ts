@@ -11,3 +11,7 @@ export function loginUser(data: API.LoginData) {
   };
   return apiHelper.login<API.AuthLogin, API.LoginData>(request)
 }
+
+export function logoutUser() {
+  return apiHelper.logout<any, any>(API_URL.LOGOUT)
+}

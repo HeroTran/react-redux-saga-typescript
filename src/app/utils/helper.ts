@@ -1,7 +1,7 @@
 
 import {
   ACCESS_TOKEN_KEY,
-} from '../functionals/User/constants';
+} from '../functionals/LoginRegister/constants';
 export const guid = () => {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)

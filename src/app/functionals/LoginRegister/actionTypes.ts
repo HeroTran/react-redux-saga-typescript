@@ -4,6 +4,7 @@ export const actionTypes = {
   LOGIN_FAILURE: 'LOGIN_FAILURE',
   LOGOUT: 'LOGOUT',
   LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
+  LOGOUT_FAILURE: 'LOGOUT_FAILURE',
   REGISTER: 'REGISTER',
   REGISTER_SUCCESS: 'REGISTER_SUCCESS',
   REGISTER_FAILURE: 'REGISTER_FAILURE',
@@ -29,4 +30,13 @@ export interface LoginFailureAction {
   payload: any
 };
 
-export type LoginType = LoginRequestAction | LoginSuccessAction | LoginFailureAction
+export type LoginType = LoginRequestAction | LoginSuccessAction | LoginFailureAction;
+
+export interface LogoutSuccessAction {
+  type: typeof actionTypes.LOGOUT_SUCCESS;
+};
+
+export interface LogoutFailureAction {
+  type: typeof actionTypes.LOGOUT_FAILURE;
+  payload: any
+};
