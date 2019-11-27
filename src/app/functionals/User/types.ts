@@ -1,58 +1,20 @@
 import { Record, List } from 'immutable';
 
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    }
-  },
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  }
-}
-
 export interface UserState {
   userList: List<UserRecord>;
 }
 
-const userDefault: User = {
-  id: 1,
-  name: 'Leanne Graham',
-  username: 'Bret',
-  email: 'Sincere@april.biz',
-  address: {
-    street: 'Kulas Light',
-    suite: 'Apt. 556',
-    city: 'Gwenborough',
-    zipcode: '92998-3874',
-    geo: {
-      lat: '-37.3159',
-      lng: '81.1496'
-    }
-  },
-  phone: '1-770-736-8031 x56442',
-  website: 'hildegard.org',
-  company: {
-    name: 'Romaguera-Crona',
-    catchPhrase: 'Multi-layered client-server neural-net',
-    bs: 'harness real-time e-markets'
-  }
+const userDefault: API.User = {
+  _id: '5ddb4e251f2468335856fb30',
+  userId: 1,
+  name: 'test01',
+  email: 'test01@gmail.com',
+  password: '$2b$10$9r2ONIGA7pwLHiOnlpyXkOgIE.9OnqSbV0J5sY9p0T.gEz4x4LlQ2',
+  deleted: 0,
+  date: '2019-11-25T03:44:08.319Z'
 }
 
-export type UserRecord = Record<User>;
+export type UserRecord = Record<API.User>;
 export const UserFactory = Record(userDefault);
 
 const userStateDefault: UserState = {

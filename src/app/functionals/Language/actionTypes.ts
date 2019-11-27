@@ -1,4 +1,5 @@
 export const actionTypes = {
+  CHANGE_LOCALE_REQUEST: 'CHANGE_LOCALE_REQUEST',
   CHANGE_LOCALE: 'CHANGE_LOCALE_LANGUGE',
 };
 
@@ -13,3 +14,4 @@ export type ChangeLocaleStates = {
 }
 
 export type ChangeLocaleActionType = ChangeLocaleAction;
+export default actionTypes;

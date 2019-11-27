@@ -195,28 +195,26 @@ export interface RequestPatchApi<E> {
   data: E;
 }
 
-export function refreshToken<T = any, E = any>(request: RequestPostApi) {
-  const params = new URLSearchParams();
-  const data = request.data;
-  if (data) {
-    params.set('refresh_token', data.refresh_token);
-    params.set('grant_type', data.grant_type);
-  }
+export function cancelUploadFile() {
+  source.cancel('upload file was terminated');
+  source = CancelToken.source();
+}
+
+export function login<T = any, E = any>(request: RequestPostApi<API.LoginData>) {
   const req: AxiosRequestConfig = {
     url: META_API + request.url,
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-88',
-      'Authorization': `'Basic '${btoa('newzik:')}`
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*'
     },
-    data: params,
+    data: JSON.stringify(request.data),
     responseType: 'json'
   };
   const postData: AxiosPromise<T> = axios(req);
-  return postData;
-}
-
-export function cancelUploadFile() {
-  source.cancel('upload file was terminated');
-  source = CancelToken.source();
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
 }

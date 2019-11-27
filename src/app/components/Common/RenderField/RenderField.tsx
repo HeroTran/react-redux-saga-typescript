@@ -27,7 +27,6 @@ export default class RenderField extends React.Component<RenderFieldProps & any>
       <div className="render-field">
         <label>{label}</label>
         <div className="display-input">
-          {(touched && error) || (dirty  && isCheckValidate && !touched && error) || isCheckValidate ? <span className="error-check" /> : ''}
           <input
             className={`input-text ${(touched && error) || (dirty && isCheckValidate && !touched && error) || isCheckValidate ? 'error' : ''}`}
             {...input}

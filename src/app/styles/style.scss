@@ -5,6 +5,11 @@
 @import "input";
 @import "animation";
 @import "media";
+@import "ie-fix";
+@import '~flag-icon-css/css/flag-icon.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~bootstrap/scss/bootstrap';
+@import "~@coreui/coreui/scss/coreui.scss";
 
 body,html{
     font-family: 'SFProText-Regular', Arial, Helvetica, sans-serif;

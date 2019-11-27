@@ -18,10 +18,10 @@ export default class LocaleSelect extends React.Component<LocaleSelectState> {
     return (
       <ul className="ul-flag">
         <li onClick={this.handleChange}  className="menu-item li-item" data-flag="en">
-          <span className="flag flag-uk" />
+          English
         </li>
         <li onClick={this.handleChange} className="menu-item li-item" data-flag="fr">
-          <span className="flag flag-fr" />
+          Franch
         </li>
       </ul>
     );

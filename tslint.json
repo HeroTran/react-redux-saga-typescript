@@ -10,6 +10,7 @@
             "single",
             "jsx-double"
         ],
+        "jsx-no-lambda": false,
         "max-line-length": false,
         "align": false,
         "import-name": false,

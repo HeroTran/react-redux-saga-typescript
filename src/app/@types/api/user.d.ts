@@ -1,18 +1,11 @@
-declare namespace Newzik {
-  export interface LoginData {
-    username: string;
+declare namespace API {
+  export interface User {
+    _id: string;
+    userId: number;
+    name: string;
+    email: string;
     password: string;
-  }
-  export interface AuthorizeData {
-    user_oauth_approval: string;
-    [key: string]: string;
-    authorize: string;
-  }
-  export interface ErrorResponse {
-    data: {
-      httpStatusCode: number;
-      subType: string;
-      success: boolean;
-    }
+    deleted: number;
+    date: string;
   }
 }

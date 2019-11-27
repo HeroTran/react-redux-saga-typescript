@@ -43,5 +43,5 @@ export function getAccessToken() {
 }
 
 export function getAuthorizationHeader() {
-  return `Bearer ${getAccessToken()}`;
+  return `${getAccessToken()}`;
 }

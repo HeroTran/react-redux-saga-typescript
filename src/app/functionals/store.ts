@@ -10,12 +10,14 @@ import * as Immutable from 'immutable'
 import { rootSaga } from './rootSaga';
 import { LanguageFactory } from './Language/types';
 import { UserStateFactory } from './User/types';
+import { AuthStateFactory } from './LoginRegister/types';
 
 const initImmutable = Immutable.Map();
 const initial: AppState = {
   form: {},
   language: LanguageFactory(),
   user: UserStateFactory(),
+  auth: AuthStateFactory(),
   router: {}
 }
 
