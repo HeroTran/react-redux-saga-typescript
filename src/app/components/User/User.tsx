@@ -8,8 +8,9 @@ class User extends React.Component<userProps, userStates> {
   constructor(props: userProps) {
     super(props);
   }
+  componentDidMount() {
+  }
   render() {
-    console.log('aaa', this.props);
     return (
       <React.Fragment>
         <div>

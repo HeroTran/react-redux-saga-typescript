@@ -17,7 +17,7 @@ const initial: AppState = {
   form: {},
   language: LanguageFactory(),
   user: UserStateFactory(),
-  auth: AuthStateFactory(),
+  authUser: AuthStateFactory(),
   router: {}
 }
 

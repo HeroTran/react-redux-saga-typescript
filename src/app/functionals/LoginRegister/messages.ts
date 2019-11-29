@@ -17,6 +17,10 @@ export default defineMessages({
     id: 'intl.components.login.password',
     defaultMessage: 'Password',
   },
+  confirmPassword: {
+    id: 'intl.components.login.confirmPassword',
+    defaultMessage: 'Confirm password',
+  },
   repeatPassword: {
     id: 'intl.components.login.repeatPassword',
     defaultMessage: 'Repeat password',

@@ -1,6 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import * as React from 'react';
+import { Map } from 'immutable';
 
 export const required = (value: string | number) => value ? undefined : <FormattedMessage {...messages.required} />
 export const requiredSpace = (value: string) => {
@@ -19,8 +20,8 @@ export const password = (value: string) => {
   const str = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
   return !value || !str.test(value) ? <FormattedMessage {...messages.formatPassword} /> : undefined;
 };
-export const checkPassword = (password: string, confirm: string) => {
-  return password !== confirm ? <FormattedMessage {...messages.pwdNotMatch} /> : undefined;
+export const checkPassword = (confirm: string, allValues: Map<string, string>) => {
+  return confirm !== allValues.get('password') ? <FormattedMessage {...messages.pwdNotMatch} /> : undefined;
 };
 
 export interface Validator {

@@ -3,17 +3,25 @@ import LocaleSelectContainer from '../../../../containers/Language/LocaleSelectC
 import './header.scss';
 const avarta = require('../../../../../public/images/man.jpg');
 type HeaderProps = {
+  userName: string;
   handleLogout: () => void;
+  getUserInfo: () => void;
 };
 
 export default class Header extends React.Component<HeaderProps> {
   constructor(props: HeaderProps) {
     super(props);
   }
+  componentDidMount() {
+    if (this.props.userName === '') {
+      this.props.getUserInfo();
+    }
+  }
   handleLogout = () => {
     this.props.handleLogout();
   }
   render() {
+    const { userName } = this.props;
     return (
       <React.Fragment>
         {/* HEADER DESKTOP*/}
@@ -35,7 +43,7 @@ export default class Header extends React.Component<HeaderProps> {
                       <div className="image">
                         <img src={avarta} alt="Bill" />
                       </div>
-                      <div className="content">userName</div>
+                      <div className="content">{userName}</div>
                     </div>
                   </div>
                 </div>

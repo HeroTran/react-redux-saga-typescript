@@ -4,8 +4,8 @@ declare namespace API {
     userId: number;
     name: string;
     email: string;
-    password: string;
-    deleted: number;
     date: string;
+    tokenFB: string;
+    code: string;
   }
 }

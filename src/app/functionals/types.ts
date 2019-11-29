@@ -11,7 +11,7 @@ export interface AppState {
   form: any;
   language: LanguageRecord;
   user: UserStateRecord;
-  auth: AuthStateRecord;
+  authUser: AuthStateRecord;
   router: any
 }
 
@@ -19,7 +19,7 @@ const appStateDefault: AppState = {
   form: {},
   language: LanguageFactory(),
   user: UserStateFactory(),
-  auth: AuthStateFactory(),
+  authUser: AuthStateFactory(),
   router: {}
 }
 export const AppStateFactory = Record(appStateDefault);

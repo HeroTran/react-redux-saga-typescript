@@ -35,10 +35,10 @@ class Login extends React.Component<LoginType, LoginStates> {
                 <div className="login-wrap">
                   <div className="login-content">
                     <div className="login-logo">
-                    <h1>Login</h1>
+                      <h1>Login</h1>
                     </div>
                     <div className="login-form">
-                      <div className="form-group">
+                      <div className="form-group m-b-10">
                         <label>Email Address</label>
                         <FormattedMessage {...messages.email}>
                           {(placeholder: string) => <Field name="email" component={RenderField} type="text" placeholder={placeholder} validate={[required, requiredSpace, email]} autoComplete="email" />}
@@ -50,7 +50,12 @@ class Login extends React.Component<LoginType, LoginStates> {
                           {(placeholder: string) => <Field name="password" component={RenderField} type="password" placeholder={placeholder} validate={[required, requiredSpace]} autoComplete="current-password" />}
                         </FormattedMessage>
                       </div>
-                      <button className="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                      <button className="au-btn au-btn--block au-btn--green m-t-30 m-b-20" type="submit">sign in</button>
+                      <div className="social-login-content">
+                        <div className="social-button">
+                          <a href="http://localhost:3000/api/auth/facebook"  className="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</a>
+                        </div>
+                      </div>
                       <div className="register-link">
                         <p>
                           Already have account? <Link to="/sign-up">Sign Up Here</Link>

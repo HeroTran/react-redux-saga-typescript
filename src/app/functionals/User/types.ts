@@ -5,13 +5,13 @@ export interface UserState {
 }
 
 const userDefault: API.User = {
-  _id: '5ddb4e251f2468335856fb30',
-  userId: 1,
-  name: 'test01',
-  email: 'test01@gmail.com',
-  password: '$2b$10$9r2ONIGA7pwLHiOnlpyXkOgIE.9OnqSbV0J5sY9p0T.gEz4x4LlQ2',
-  deleted: 0,
-  date: '2019-11-25T03:44:08.319Z'
+  _id: '',
+  userId: 0,
+  name: '',
+  email: '',
+  date: '',
+  tokenFB: '',
+  code: ''
 }
 
 export type UserRecord = Record<API.User>;

@@ -5,7 +5,7 @@
   "intl.components.login.userName": "User name",
   "intl.components.login.email": "Email",
   "intl.components.login.password": "Password",
-  "intl.components.login.repeatPassword":"Repeat password",
+  "intl.components.login.confirmPassword":"Confirm password",
   "intl.components.login.login": "Sign In to your account",
   "intl.components.login.loginError": "Wrong password. Try again or click Forgot password to reset it.",
   "intl.components.login.invalidScopeError": "You cannot sign in with this account for the requested scope and app.",

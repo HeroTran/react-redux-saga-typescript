@@ -5,9 +5,9 @@ const userInfoDefault: API.User = {
   userId: 1,
   name: '',
   email: '',
-  password: '',
-  deleted: 0,
-  date: ''
+  date: '',
+  tokenFB: '',
+  code: ''
 }
 
 export type UserInfoRecord = Record<API.User>;
@@ -19,14 +19,14 @@ const loginDefault: API.AuthLogin = {
   userInfo: UserInfoFactory()
 }
 
-const registerDefault: API.Register = {
+const registerDefault: API.AuthRegister = {
   isSuccess: false
 }
 
 export type LoginRecord = Record<API.AuthLogin>;
 export const LoginFactory = Record(loginDefault);
 
-export type RegisterRecord = Record<API.Register>;
+export type RegisterRecord = Record<API.AuthRegister>;
 export const RegisterFactory = Record(registerDefault);
 
 export interface AuthState {

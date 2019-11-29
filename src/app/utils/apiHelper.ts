@@ -65,6 +65,7 @@ export function post<T = any, E = any>(request: RequestPostApi<E>, cancelToken?:
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
         'Authorization': getAuthorizationHeader()
       },
       data: JSON.stringify(request.data),
@@ -77,6 +78,7 @@ export function post<T = any, E = any>(request: RequestPostApi<E>, cancelToken?:
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
         'Authorization': getAuthorizationHeader()
       },
       data: JSON.stringify(request.data),
@@ -218,7 +220,7 @@ export function login<T = any, E = any>(request: RequestPostApi<API.LoginData>) 
   });
 }
 
-export function logout<T = any, E = any>(url : string) {
+export function logout<T = any, E = any>(url: string) {
   const req: AxiosRequestConfig = {
     url: META_API + url,
     method: 'POST',
@@ -226,6 +228,44 @@ export function logout<T = any, E = any>(url : string) {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': getAuthorizationHeader(),
     },
+    responseType: 'json'
+  };
+  const postData: AxiosPromise<T> = axios(req);
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export function register<T, E>(request: RequestPostApi<E>) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json'
+    },
+    data: JSON.stringify(request.data),
+    responseType: 'json'
+  };
+  const postData: AxiosPromise<T> = axios(req);
+  return postData.then(res => {
+    return Promise.resolve(res);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
+export function getTokenByCode<T, E>(request: RequestPostApi<E>) {
+  const req: AxiosRequestConfig = {
+    url: META_API + request.url,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json'
+    },
+    data: JSON.stringify(request.data),
     responseType: 'json'
   };
   const postData: AxiosPromise<T> = axios(req);

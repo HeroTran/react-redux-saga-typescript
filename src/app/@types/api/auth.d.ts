@@ -13,7 +13,15 @@ declare namespace API {
     email: string;
     password: string;
   }
-  export interface Register {
+  export interface RegisterData {
+    name : string;
+    email: string;
+    password: string;
+  }
+  export interface AuthRegister {
     isSuccess: boolean;
+  }
+  export interface AuthFindByCode {
+    codeLogin: string;
   }
 }
