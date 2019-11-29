@@ -5,6 +5,7 @@ import { required, requiredSpace, email } from '../../utils/validator';
 import { InjectedFormProps } from 'redux-form';
 import { FormattedMessage } from 'react-intl';
 import messages from '../../functionals/LoginRegister/messages';
+import * as helper from '../../utils/helper';
 import { Link } from 'react-router-dom';
 import './login.scss';
 type LoginProps = {
@@ -53,7 +54,7 @@ class Login extends React.Component<LoginType, LoginStates> {
                       <button className="au-btn au-btn--block au-btn--green m-t-30 m-b-20" type="submit">sign in</button>
                       <div className="social-login-content">
                         <div className="social-button">
-                          <a href="http://localhost:3000/api/auth/facebook"  className="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</a>
+                          <a href={helper.loginFB()} className="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</a>
                         </div>
                       </div>
                       <div className="register-link">

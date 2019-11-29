@@ -14,11 +14,20 @@ The Front-end project for the Third-party Login Plugin
 
 - npm install -save react react-dom react-redux react-router react-router-dom react-router-redux redux redux-actions redux-form redux-immutable redux-saga
 
-## Link document
-- https://react.i18next.com/legacy-v9/step-by-step-guide
+## Technical Applied
+- React & Redux saga, redux form & Typescript
+- Multiple language : react-intl
+- Router : connected-react-router , react-router-dom
+- React lazy load
+- Webpack >= 4
+- scss, bookstrap
+- Config Multiple Environment (cross-env)
+- axios : GET,SET,PUT,PATCH for API
+- reselect get data from redux store
+- Immutable record
 
 ## Setup
-
+-- Need download and run API node js : https://github.com/HeroTran/Node-API-Authentication
 
 ```
 - Install web app dependencies:

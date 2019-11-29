@@ -45,3 +45,7 @@ export function getAccessToken() {
 export function getAuthorizationHeader() {
   return `${getAccessToken()}`;
 }
+
+export const loginFB = () => {
+  return `${process.env.REACT_APP_API_URL}/api/auth/facebook`;
+}
