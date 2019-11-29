@@ -10,7 +10,7 @@ const mapStateToProps = () => ({
 });
 const mapDispatchToProps = dispatch => ({
   onSubmit: (values: Map<string, string>) => dispatch(userLoginRequest(values)),
-  changeToHome: () => dispatch(push('/user')),
+  changeToHome: () => dispatch(push('/')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

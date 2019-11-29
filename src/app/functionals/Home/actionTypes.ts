@@ -1,0 +1,6 @@
+export const actionTypes = {
+  GET_ALL_INFO_HOME: 'GET_ALL_INFO_HOME_REQUEST',
+  GET_ALL_INFO_HOME_SUCCESS: 'GET_ALL_INFO_HOME_SUCCESS',
+  GET_ALL_INFO_HOME_FAIL: 'GET_ALL_INFO_HOME_FAIL',
+};
+export default actionTypes;

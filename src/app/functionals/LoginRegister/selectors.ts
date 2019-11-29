@@ -21,6 +21,13 @@ export const makeSelectUserNameState = createSelector(
   user => user.get('login').get('userInfo').name
 );
 
+export const makeErrorRegisterUser = createSelector(
+  getAuthState,
+  user => {
+    return user.get('login').get('token')
+  }
+);
+
 export const makeSelectFormRegisterProps = createSelector(
   getFormStates,
   form => form.get('RegisterForm')

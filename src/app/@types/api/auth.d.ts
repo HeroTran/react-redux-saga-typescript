@@ -14,7 +14,7 @@ declare namespace API {
     password: string;
   }
   export interface RegisterData {
-    name : string;
+    name: string;
     email: string;
     password: string;
   }

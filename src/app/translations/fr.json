@@ -1,11 +1,12 @@
 {
+  "newzik.components.home.title": "Home page",
   "intl.components.UI.btnCancel": "FRCancel",
   "intl.components.UI.btnRetry": "FRRetry",
   "intl.components.login.title": "FRLogin",
   "intl.components.login.userName": "FRUser name",
   "intl.components.login.email": "FREmail",
   "intl.components.login.passWord": "FRPassword",
-  "intl.components.login.confirmPassword":"Confirm password",
+  "intl.components.login.confirmPassword": "Confirm password",
   "intl.components.login.login": "FRSign In to your account",
   "intl.components.login.loginError": "FRWrong password. Try again or click Forgot password to reset it.",
   "intl.components.login.invalidScopeError": "FRYou cannot sign in with this account for the requested scope and app.",

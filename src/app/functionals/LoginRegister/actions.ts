@@ -73,13 +73,6 @@ export function userRegisterSuccess(registerInfo: API.AuthRegister): RegisterSuc
   };
 }
 
-export function userRegisterFailure(error: any): LoginFailureAction {
-  return {
-    type: actionTypes.REGISTER_FAILURE,
-    payload: error,
-  };
-}
-
 export function checkLoginStatus(code: String): CheckLoginRequestAction {
   return {
     type: actionTypes.CHECK_STATUS_LOGIN_REQUEST,

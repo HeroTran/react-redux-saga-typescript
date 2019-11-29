@@ -14,8 +14,8 @@
     "lint": "tslint --project tsconfig.json",
     "clean": "node rimraf",
     "start": "cross-env NODE_ENV=local webpack-dev-server --mode development --color --port 3001 --open",
-    "start-dev": "cross-env NODE_ENV=dev webpack-dev-server --mode development --color --port 3000 --open",
-    "start-prod": "cross-env NODE_ENV=production webpack-dev-server --mode development --color --port 3000 --open",
+    "start-dev": "cross-env NODE_ENV=dev webpack-dev-server --mode development --color --port 3001 --open",
+    "start-prod": "cross-env NODE_ENV=production webpack-dev-server --mode development --color --port 3001 --open",
     "build-dev": "cross-env NODE_ENV=dev npm run build",
     "build-local": "cross-env NODE_ENV=local npm run build",
     "build-prod": "cross-env NODE_ENV=production npm run build"
@@ -46,7 +46,7 @@
     "@types/webpack-env": "1.13.6",
     "axios": "0.19.0",
     "babel-loader": "8.0.6",
-    "bootstrap-scss": "4.3.1",
+    "bootstrap": "4.4.1",
     "classnames": "2.2.6",
     "connected-react-router": "6.6.0",
     "cors": "2.8.5",
@@ -127,8 +127,8 @@
     "testURL": "http://localhost",
     "proxy": {
       "/api": {
-         "target": "http://localhost:3000/"
+        "target": "http://localhost:3000/"
       }
-   }
+    }
   }
 }

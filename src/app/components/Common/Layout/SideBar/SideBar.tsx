@@ -12,7 +12,7 @@ export default class SideBar extends React.Component<SideBarProps> {
         {/* MENU SIDEBAR*/}
         <aside className="menu-sidebar d-none d-lg-block">
           <div className="logo">
-            <h1>REACT</h1>
+            <Link to={'/'}> <h1>REACT</h1></Link>
           </div>
           <div className="menu-sidebar__content js-scrollbar1">
             <nav className="navbar-sidebar">

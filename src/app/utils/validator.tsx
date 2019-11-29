@@ -14,7 +14,7 @@ export const email = (value: string) => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.
 const minValue = (min: string | number) => (value: string) => {
   return value && value.length < min ? <FormattedMessage {...messages.minValue} values={{ min: min }} /> : undefined;
 };
-export const minLength8 = minValue(8);
+export const minLength = minValue(6);
 
 export const password = (value: string) => {
   const str = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;

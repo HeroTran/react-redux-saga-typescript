@@ -20,7 +20,7 @@ const loginDefault: API.AuthLogin = {
 }
 
 const registerDefault: API.AuthRegister = {
-  isSuccess: false
+  isSuccess: false,
 }
 
 export type LoginRecord = Record<API.AuthLogin>;

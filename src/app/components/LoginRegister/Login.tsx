@@ -39,14 +39,12 @@ class Login extends React.Component<LoginType, LoginStates> {
                       <h1>Login</h1>
                     </div>
                     <div className="login-form">
-                      <div className="form-group m-b-10">
-                        <label>Email Address</label>
+                      <div className="form-group m-b-20">
                         <FormattedMessage {...messages.email}>
                           {(placeholder: string) => <Field name="email" component={RenderField} type="text" placeholder={placeholder} validate={[required, requiredSpace, email]} autoComplete="email" />}
                         </FormattedMessage>
                       </div>
                       <div className="form-group">
-                        <label>Password</label>
                         <FormattedMessage {...messages.password}>
                           {(placeholder: string) => <Field name="password" component={RenderField} type="password" placeholder={placeholder} validate={[required, requiredSpace]} autoComplete="current-password" />}
                         </FormattedMessage>

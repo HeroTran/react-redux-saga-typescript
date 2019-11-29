@@ -29,7 +29,7 @@ export function download<T>(request: RequestGetApi) {
   return fetchData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -48,7 +48,7 @@ export function apiGet<T>(request: RequestGetApi, progressCb?: (e: ProgressEvent
   return fetchData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -89,7 +89,7 @@ export function post<T = any, E = any>(request: RequestPostApi<E>, cancelToken?:
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -115,7 +115,7 @@ export function postUploadFile<T, E>(request: RequestPostUploadApi<E>, progressC
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -140,7 +140,7 @@ export function apiPut<T, E>(request: RequestPutApi<E>) {
   return putData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -164,7 +164,7 @@ export function apiPatch<T, E>(request: RequestPatchApi<E>) {
   return patchData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -188,7 +188,7 @@ export function apiDelete<T, E>(request: RequestDeleteApi<E>) {
   return delData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -216,7 +216,7 @@ export function login<T = any, E = any>(request: RequestPostApi<API.LoginData>) 
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -234,7 +234,7 @@ export function logout<T = any, E = any>(url: string) {
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -253,7 +253,7 @@ export function register<T, E>(request: RequestPostApi<E>) {
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }
 
@@ -272,6 +272,6 @@ export function getTokenByCode<T, E>(request: RequestPostApi<E>) {
   return postData.then(res => {
     return Promise.resolve(res);
   }).catch(err => {
-    console.log(err);
+    return Promise.reject(err);
   });
 }

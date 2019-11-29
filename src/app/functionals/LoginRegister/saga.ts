@@ -5,6 +5,7 @@ import { ACCESS_TOKEN_KEY, IS_LOGIN_KEY, AUTHORIZE_CODE } from './constants';
 import { push } from 'connected-react-router/immutable';
 import * as api from './api';
 import * as actions from './actions';
+import { stopSubmit, startSubmit } from 'redux-form';
 
 export function* userLogin(action: LoginRequestAction) {
   const loginData = action.payload;
@@ -18,7 +19,7 @@ export function* userLogin(action: LoginRequestAction) {
     setLocalStore(ACCESS_TOKEN_KEY, authLogin.token);
     setLocalStore(IS_LOGIN_KEY, 'true');
     yield put(actions.userLoginSuccess(authLogin));
-    yield put(push('/user'))
+    yield put(push('/'))
   } catch (error) {
     removeLocalStore(ACCESS_TOKEN_KEY);
     setLocalStore(IS_LOGIN_KEY, 'false');
@@ -37,7 +38,8 @@ export function* userLogout() {
     removeLocalStore(IS_LOGIN_KEY);
     yield put(push('/login'))
   } catch (error) {
-    yield put(actions.userLogoutFailure(error))
+    yield put(actions.userLogoutFailure(error));
+    yield put(push('/login'));
   }
 }
 
@@ -52,10 +54,11 @@ export function* userRegister(action: RegisterRequestAction) {
     const authRegister: API.AuthRegister = {
       isSuccess: registerInfo.data.isSuccess,
     }
+    yield put(startSubmit('RegisterForm'))
     yield put(actions.userRegisterSuccess(authRegister));
     yield put(push('/login'))
   } catch (error) {
-    yield put(actions.userRegisterFailure(error))
+    yield put(stopSubmit('RegisterForm', { _error: error.response.data.error }))
   }
 }
 
@@ -76,7 +79,8 @@ export function* checkStatusLogin(action: any) {
   } catch (error) {
     removeLocalStore(ACCESS_TOKEN_KEY);
     setLocalStore(IS_LOGIN_KEY, 'false');
-    yield put(actions.checkLoginStatusFailure(error))
+    yield put(actions.checkLoginStatusFailure(error));
+    yield put(push('/login'));
   }
 }
 
@@ -99,7 +103,10 @@ export function* getUserInfo() {
     }
     yield put(actions.getUserSuccess(authLoginFB));
   } catch (error) {
-    yield put(actions.getUserFailure(error))
+    removeLocalStore(ACCESS_TOKEN_KEY);
+    setLocalStore(IS_LOGIN_KEY, 'false');
+    yield put(actions.getUserFailure(error));
+    yield put(push('/login'));
   }
 }
 
