@@ -31,7 +31,7 @@ class Login extends React.Component<LoginType, LoginStates> {
       <React.Fragment>
         <Form onSubmit={this.props.handleSubmit}>
           <div className="page-wrapper">
-            <div className="page-content--bge5">
+            <div className="page-content">
               <div className="container">
                 <div className="login-wrap">
                   <div className="login-content">
