@@ -21,7 +21,7 @@ class Login extends React.Component<LoginType, LoginStates> {
   constructor(props: LoginProps & InjectedFormProps) {
     super(props);
   }
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.isLogin) {
       this.props.changeToHome();
     }

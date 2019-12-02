@@ -38,6 +38,8 @@ export function* userLogout() {
     removeLocalStore(IS_LOGIN_KEY);
     yield put(push('/login'))
   } catch (error) {
+    removeLocalStore(ACCESS_TOKEN_KEY);
+    setLocalStore(IS_LOGIN_KEY, 'false');
     yield put(actions.userLogoutFailure(error));
     yield put(push('/login'));
   }
