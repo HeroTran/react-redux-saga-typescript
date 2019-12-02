@@ -153,7 +153,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "style/[name][hash].css",
-      chunkFilename: '[id].css',
+      chunkFilename: 'style/[id].[hash].css',
     })
     ,
     new webpack.DefinePlugin({
@@ -165,6 +165,8 @@ module.exports = {
       hash: true,
       inject: true,
       template: './src/app/index.html',
+      favicon: './src/public/images/favicon.jpg',
+      filename: "index.html",
       minify: {
         removeComments: true,
         collapseWhitespace: true,

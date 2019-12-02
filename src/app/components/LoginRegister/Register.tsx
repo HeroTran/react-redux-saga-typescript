@@ -6,7 +6,6 @@ import { required, requiredSpace, email, minLength, checkPassword } from '../../
 import { InjectedFormProps } from 'redux-form';
 import messages from '../../functionals/LoginRegister/messages';
 import { Link } from 'react-router-dom';
-import './login.scss';
 
 type RegisterProps = {
   isLogin: boolean;
