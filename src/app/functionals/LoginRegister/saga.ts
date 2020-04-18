@@ -21,6 +21,8 @@ export function* userLogin(action: LoginRequestAction) {
     yield put(actions.userLoginSuccess(authLogin));
     yield put(push('/'))
   } catch (error) {
+    console.log('login da vao day roi');
+    yield put({type: 'ERROR', error, action})
     removeLocalStore(ACCESS_TOKEN_KEY);
     setLocalStore(IS_LOGIN_KEY, 'false');
     yield put(actions.userLoginFailure(error))

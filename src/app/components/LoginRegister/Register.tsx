@@ -26,19 +26,15 @@ class Register extends React.Component<RegisterType, RegisterStates> {
     }
   }
   shouldComponentUpdate(nextProps: RegisterType, nextStates: RegisterStates) {
-    console.log(nextProps);
     return true;
   }
   componentDidUpdate(prevProps: RegisterType) {
-    console.log(prevProps);
   }
   componentDidCatch(e) {
     this.setState({ error: e });
   }
   render() {
-    const { error, isLogin } = this.props;
-    console.log('error', error);
-    console.log('isLogin', isLogin);
+    const { error } = this.props;
     return (
       <React.Fragment>
         <Form onSubmit={this.props.handleSubmit}>

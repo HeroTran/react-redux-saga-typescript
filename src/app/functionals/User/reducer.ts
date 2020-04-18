@@ -10,8 +10,6 @@ export default function user(state: UserStateRecord = initialState, action: any)
       return reducerUtils.fetchListUser(state, action);
     }
     case actionTypes.GET_ALL_USER_FAIL: {
-      const data = action.payload;
-      console.log(data);
       return state;
     }
     default:

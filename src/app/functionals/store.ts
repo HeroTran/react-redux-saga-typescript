@@ -12,6 +12,8 @@ import { LanguageFactory } from './Language/types';
 import { UserStateFactory } from './User/types';
 import { HomeStateFactory } from './Home/types';
 import { AuthStateFactory } from './LoginRegister/types';
+// import * as Raven from 'raven-js';
+import * as Sentry from '@sentry/browser'
 
 const initImmutable = Immutable.Map();
 const initial: AppState = {
@@ -40,10 +42,17 @@ const stateSanitizer = (state: any) => {
   }
   return state;
 }
-export const history = createBrowserHistory()
-
+export const history = createBrowserHistory();
+// Raven.config('https://7c97ef7f67784e57a3e9f553ed52d82a@o379675.ingest.sentry.io/5204805').install();
+Sentry.init({ dsn: 'https://7c97ef7f67784e57a3e9f553ed52d82a@o379675.ingest.sentry.io/5204805' });
+const sagaMiddleware = createSagaMiddleware({
+  onError(err) {
+    console.log('vao roi ne', err);
+    Sentry.captureException(err)
+  },
+})
 export default function configureStore(): Store<AppState> {
-  const sagaMiddleware = createSagaMiddleware();
+  // const sagaMiddleware = createSagaMiddleware();
   let middleware = applyMiddleware(sagaMiddleware, logger, routerMiddleware(history));
   if (process.env.NODE_ENV !== 'production') {
     const composeEnhancers = composeWithDevTools({ actionSanitizer, stateSanitizer });

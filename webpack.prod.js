@@ -151,9 +151,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    }),
     new MiniCssExtractPlugin({
-      filename: "style/[name][hash].css",
-      chunkFilename: 'style/[id].[hash].css',
+      filename: "style/style.min.css"
     })
     ,
     new webpack.DefinePlugin({
